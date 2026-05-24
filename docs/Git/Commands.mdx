@@ -1,0 +1,17 @@
+---
+sidebar_position: 0
+---
+Git is a software-development tool. Here are some known commands:  
+## Reset branch to upstream  
+THIS WILL DELETE EVERYTHING with no warning, but can be recovered from `git reflog`.  
+WHERE *origin* is your `git upstream` and main is your branch  
+```bash 
+git reset --hard origin/main
+```
+## Git branches
+```bash 
+git remote #View upstreams
+git remote add UPSTREAM_NAME GIT_URL #View upstreams
+git remote remove UPSTREAM_NAME #View upstreams
+```
+

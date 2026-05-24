@@ -1,0 +1,43 @@
+---
+sidebar_position: 0
+---
+
+## Static IPs
+Subtab of image
+```bash 
+    networks:
+      default:
+        ipv4_address: YOUR_IP
+```
+## Add host networking as secondary
+Subtab of image
+```bash 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+```
+## Restart
+Subtab of image
+```bash 
+restart: unless-stopped
+```
+## Docker Network
+Place at bottom of file
+```bash 
+networks:
+  default:
+    external: true
+    name: scoobydoo
+```
+## Mount files in container
+Subtab of image
+```bash 
+    volumes:
+      - ${PWD}/state:/var/lib/tailscale
+```
+## Expose network ports on host IP
+Subtab of image
+```bash 
+    ports:
+      - 443:443
+      - 80:80
+```
