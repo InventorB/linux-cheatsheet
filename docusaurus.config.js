@@ -87,16 +87,19 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'More',
             items: [
               {
-                label: 'Personal GitHub',
+                label: 'My GitHub',
                 href: 'https://github.com/InventorB',
+              },
+              {
+                label: 'About Braden',
+                href: 'https://bwagner.dev',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Braden Wagner, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Braden Wagner.`,
       },
       prism: {
         theme: prismThemes.github,

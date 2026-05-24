@@ -2,22 +2,24 @@
 sidebar_position: 1
 ---
 ## Merging
-Two-way easy combination of two branches. Histories are combined, Simplest, and can create chaos
+Two-way easy combination of two branches. 
+The simplest conceptually, but other methods may be more efficient in some merge conflicts.
+**Once you do a merge, you can't do a rebase later on.**
 ```bash
 # SWITCH TO TARGET BRANCH FIRST
 git merge OTHER_BRANCH
 ```
 ## Rebase
 Ideal when you want to catch up your branch with main, without a merge.
-It puts the latest changes on the upstream behind your commits.
+It puts the latest changes on the upstream behind your latest commits.
 ```bash
 # SWITCH TO BRANCH TO REBASE INTO
 git rebase REBASE_FROM_BRANCH
 ```
 ## Cherry-Picking
 When you want to copy one commit and paste it on another branch.
-You can do multiple commits in a row.
+You can do multiple commits in a row, but consider squashing first after a few.
 ```bash
 # SWITCH TO BRANCH TO REBASE INTO
-git cherry-pick COMMIT_HASH
+git cherry-pick COMMIT_HASH SECOND_HASH THIRD_HASH # and so on...
 ```
