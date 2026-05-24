@@ -1,0 +1,24 @@
+---
+sidebar_position: 0
+---
+Git is a software-development tool. Here are some known commands:
+
+## Git remotes
+HTTPS is easier than SSH to use and is my recommendation for most cases.
+```bash 
+git remote #View upstreams
+git remote add UPSTREAM_NAME GIT_URL #View upstreams
+git remote remove UPSTREAM_NAME #Remove upstreams
+```
+## Reset branch to upstream  
+THIS WILL DELETE EVERYTHING with no warning, but can be recovered from `git reflog`.  
+WHERE *origin* is your git upstream and *main* is your branch  
+```bash 
+git reset --hard origin/main
+```
+## Branching
+```bash 
+git branch #List local branches
+git switch -c NEW_BRANCH_NAME #New branch
+git switch BRANCH_NAME #Switch branches
+```

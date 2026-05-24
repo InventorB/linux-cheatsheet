@@ -1,0 +1,24 @@
+---
+sidebar_position: 2
+---
+## Git reflog
+Shows your entire history. You can search or grep for "commit" to find lost commits.
+```bash
+git reflog # copy the hash you want
+# now switch to branch you want
+git reset --hard COMMIT_HASH # reset to this OR
+git cherry-pick COMMIT_HASH # cherry pick this commit INSTEAD
+# push your changes
+```
+Example:
+```
+braden@laptop awesome-linux % git reflog                 
+fe37312 (HEAD -> main, origin/main, origin/HEAD) HEAD@{0}: commit: first set of docs
+bb031a9 HEAD@{1}: commit: will deletion and re-pushing fix this???
+573cf9a HEAD@{2}: commit: remove bad file
+d3f0b8b HEAD@{3}: commit: start git
+# fe37312 is the last commit, followed by bb031a9, 573cf9a, and last d3f0b8b.
+```
+
+
+
