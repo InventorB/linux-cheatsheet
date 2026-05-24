@@ -1,0 +1,57 @@
+---
+sidebar_position: 0
+---
+# Files
+
+## File Operations
+```bash
+ls # list all files
+ls -la # all files, plus perms
+
+cat ./file.txt # print to console
+./script.sh # run a script
+```
+
+# Interactive editors
+If you are just stating, use nano for simplicity.
+To exit, hit CTRL + X and hit "y" or "n" when asked about changes.
+```bash
+nano file.txt # open interactive editor
+sudo nano file.txt # edit as root
+```
+
+## Deletions
+```bash
+# NOT RECURSIVE
+rm file.txt
+rm * # WIPES OUT ALL FILES IN DIRECTORY
+
+# RECURSIVE WITH SUB-FOLDERS
+sudo rm -rf ./folder # NUKE IT, THERE'S NO GOING BACK
+```
+
+# Path traversal
+```bash
+pwd # get current path to folder
+realpath file.txt # get current path including filename
+
+cd / # go to the root
+cd ../ # go back one folder
+cd ~ # user root user directory like /Users/USERNAME
+
+cd Desktop/ # traverse into a folder
+cd folder/another/another # go multiple levels deep in one command
+# pressing tab will allow for autocomplete
+```
+
+## Seaching for files
+By using the pipe operator, we can have grep filter everything out not including "tacos"
+```bash
+ls | grep "tacos"
+```
+
+## Find
+Search through everything
+```bash
+find / -type d -name "folder"
+```
