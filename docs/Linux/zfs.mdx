@@ -1,0 +1,56 @@
+---
+sidebar_position: 0
+---
+# ZFS
+ZFS is a cool filesystem that offers enterprise data integrity, and is a alternative to btrfs and ext4.
+
+It uses a drive/foldername@backupname format.  
+ex: photos-drive/photos@2026-07-16-backup where:  
+- photos-drive is pool  
+- photos is dataset  
+- 2026-07-16-backup is snapshot.  
+
+## Management
+Take snapshot
+```bash
+# each snapshot has to have a unique name
+zfs snapshot photos-drive/photos@2026-07-16-backup
+```
+
+List snapshot
+```bash
+zfs list -t snapshot photos-drive/photos
+```
+
+Delete snapshot
+```bash
+zfs destroy photos-drive/photos@2026-07-16-backup
+```
+
+Restore from snapshot
+```bash
+zfs rollback -r photos-drive/photos@2026-07-16-backup
+# any newer snapshots get deleted in order to restore!!!
+```
+
+Local ZFS send
+```bash
+# send from one drive to another. can be done over network similarly.
+zfs send photos-drive/photos@2026-07-16-backup | zfs receive restore/data
+```
+## Network
+Files can be transferred easily over network with syncoid.
+Install:
+```bash
+sudo apt install syncoid
+```
+Then setup a ssh key
+```bash
+ssh-keygen #generate a new key
+ssh-copy-id user@IP
+```
+Then transfer
+```bash
+# by default makes a zfs snapshot on run, use --no-sync-snap to disable this (make sure to snapshot yourself!)
+syncoid photos-drive/photos user@IP:backups-disk/photos --no-sync-snap # backups-disk/photos is second location
+```
