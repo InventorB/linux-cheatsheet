@@ -10,7 +10,7 @@ ex: photos-drive/photos@2026-07-16-backup where:
 - photos is dataset  
 - 2026-07-16-backup is snapshot.  
 
-## Management
+## Snapshots
 Take snapshot
 ```bash
 # each snapshot has to have a unique name
@@ -54,3 +54,27 @@ Then transfer
 # by default makes a zfs snapshot on run, use --no-sync-snap to disable this (make sure to snapshot yourself!)
 syncoid photos-drive/photos user@IP:backups-disk/photos --no-sync-snap # backups-disk/photos is second location
 ```
+## Management
+Delete Volume
+```bash
+sudo zpool destroy -f backups-drive # cd out of volume first!
+```
+Import migrated drive from another computer
+```bash
+zpool import # List Ids
+zpool import -f backups-drive # then actually import
+```
+See status of storage pools
+```bash
+zpool status
+```
+
+See space on pools
+```bash
+zpool list
+```
+See zpools and datasets
+```bash
+zfs list
+```
+
